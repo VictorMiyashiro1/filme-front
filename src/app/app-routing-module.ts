@@ -12,6 +12,14 @@ import { FilmesForm } from './pages/filmes-form/filmes-form';
 @NgModule({
   declarations: [AppComponent, FilmesList, FilmesForm],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
+  const routes: Routes = [
+  { path: '', redirectTo: 'filmes', pathMatch: 'full' },
+  { path: 'filmes', component: FilmesList },
+  { path: 'filmes/novo', component: FilmesForm },
+  { path: 'filmes/:id/editar', component: FilmesForm },
+
+  { path: '**', redirectTo: 'filmes' }
+];
   bootstrap: [AppComponent]
 })
 export class AppModule {}
