@@ -1,0 +1,129 @@
+.filmes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .filmes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .filmes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card */
+.filme-card {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Título + gênero */
+.filme-titulo {
+  font-size: 1.05rem;
+  line-height: 1.2;
+  color: #1f2937;
+  margin: 0;
+}
+.filme-genero {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Imagem padronizada (todas mesmo tamanho) */
+.filme-img-wrap {
+  width: 50%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f3f4f6;
+}
+
+/* Use aspect-ratio para manter todas iguais (cartaz 2:3) */
+.filme-img-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3; /* todas com mesmo enquadramento */
+  object-fit: cover;   /* corta para preencher sem distorcer */
+}
+
+/* Descrição */
+.filme-desc {
+  color: #1f2937;
+  opacity: 0.85;
+  margin: 0;
+  /* Se quiser limitar altura e cortar com reticências: */
+  /* display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden; */
+}
+
+/* Ações */
+.filme-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto; /* empurra botões para base do card */
+}
+
+/* Botões */
+.btn {
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 160ms ease, transform 80ms ease;
+  outline: none;
+}
+.btn-cadastrar {
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-like {
+  background-color: #d8f7d8;
+}
+
+.btn-dislike {
+  background-color: #ffdcdc; ;
+}
+
+.span-like {
+  background-color: #d8f7d8;
+  color: #1f2937;
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  transition: background 160ms ease, transform 80ms ease;
+  outline: none;
+}
+
+.span-dislike {
+  background-color: #ffdcdc;
+  color: #1f2937;
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  transition: background 160ms ease, transform 80ms ease;
+  outline: none;
+}

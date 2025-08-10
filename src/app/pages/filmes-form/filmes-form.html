@@ -1,0 +1,63 @@
+<div class="filme-form" *ngIf="!carregando; else loadingTpl">
+    <h2 class="mb-3">{{ tituloPagina }}</h2>
+
+    <form [formGroup]="form" (ngSubmit)="salvar()" novalidate>
+        <!-- Título -->
+        <div class="field">
+            <label class="filme-label required" for="title">Título</label>
+            <input id="title" type="text" formControlName="title" class="filme-input" aria-required="true"
+                [attr.aria-invalid]="showError('title')" />
+            <small class="error" *ngIf="showError('title')">
+                {{ f['title'].errors?.['required'] ? 'Título é obrigatório.' : '' }}
+                {{ f['title'].errors?.['maxlength'] ? 'Máximo de 120 caracteres.' : '' }}
+            </small>
+        </div>
+
+        <!-- Gênero -->
+        <div class="field">
+            <label class="filme-label required" for="genre">Gênero</label>
+            <input id="genre" type="text" formControlName="genre" class="filme-input" aria-required="true"
+                [attr.aria-invalid]="showError('genre')" />
+            <small class="error" *ngIf="showError('genre')">
+                {{ f['genre'].errors?.['required'] ? 'Gênero é obrigatório.' : '' }}
+                {{ f['genre'].errors?.['maxlength'] ? 'Máximo de 60 caracteres.' : '' }}
+            </small>
+        </div>
+        
+        <!-- Imagem (URL) + preview -->
+        <div class="field">
+            <label class="filme-label required" for="imageUrl">URL da imagem</label>
+            <input id="imageUrl" type="url" formControlName="imageUrl" class="filme-input" aria-required="true"
+                [attr.aria-invalid]="showError('imageUrl')" />
+            <small class="error" *ngIf="showError('imageUrl')">
+                {{ f['imageUrl'].errors?.['required'] ? 'Imagem é obrigatória.' : '' }}
+                {{ f['imageUrl'].errors?.['maxlength'] ? 'URL muito longa.' : '' }}
+            </small>
+        </div>
+
+        <!-- Descrição -->
+        <div class="field">
+            <label class="filme-label" for="description">Descrição</label>
+            <textarea id="description" rows="4" formControlName="description" class="filme-textarea"
+                [attr.aria-invalid]="showError('description')"></textarea>
+            <small class="error" *ngIf="showError('description')">
+                {{ f['description'].errors?.['maxlength'] ? 'Máximo de 1000 caracteres.' : '' }}
+            </small>
+        </div>
+
+
+        <!-- Ações -->
+        <div class="filme-actions">
+            <button type="submit" class="btn btn-salvar" [disabled]="form.invalid || salvando">
+                {{ salvando ? 'Salvando...' : 'Salvar' }}
+            </button>
+            <button type="button" class="btn btn-cancelar" (click)="cancelar()" [disabled]="salvando">
+                Cancelar
+            </button>
+        </div>
+    </form>
+</div>
+
+<ng-template #loadingTpl>
+    <p>Carregando...</p>
+</ng-template>

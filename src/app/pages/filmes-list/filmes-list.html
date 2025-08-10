@@ -1,0 +1,23 @@
+<button class="btn-cadastrar" (click)="cadastrar()">Cadastrar novo filme</button> <span class="span-like"> Total de likes: {{ totalLikes }}</span> <span class="span-dislike"> Total de dislikes: {{ totalDislikes }}</span> 
+<div class="filmes-grid">
+    <article class="filme-card" *ngFor="let f of filmes">
+        <h3 class="filme-titulo">
+            {{ f.title }} <span class="filme-genero">({{ f.genre }})</span>
+        </h3>
+
+        <div class="filme-img-wrap">
+            <img [src]="f.imageUrl"/>
+        </div>
+
+        <p class="filme-desc">
+            {{ f.description }}
+        </p>
+
+        <div class="filme-actions">
+            <button class="btn" (click)="editar(f.id!)">Editar</button>
+            <button class="btn" (click)="excluir(f.id!)">Excluir</button>
+            <button class="btn btn-like" (click)="like(f.title, f.genre, f.description, f.imageUrl, f.likes, f.dislikes, f.id)">Like: {{ f.likes }}</button>
+            <button class="btn btn-dislike" (click)="dislike(f.title, f.genre, f.description, f.imageUrl, f.likes, f.dislikes, f.id)">Dislike {{ f.dislikes }}</button>
+        </div>
+    </article>
+</div>

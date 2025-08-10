@@ -1,0 +1,113 @@
+/* Container do form */
+.filme-form {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Label padrão */
+.filme-label {
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+
+/* Asterisco vermelho nos campos obrigatórios */
+.filme-label.required::after {
+  content: " *";
+  color: red;
+}
+
+/* Inputs e textarea */
+.filme-input,
+.filme-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  color: #1f2937;
+  background-color: #f9fafb;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filme-input:focus,
+.filme-textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+  outline: none;
+}
+
+/* Textarea */
+.filme-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Preview da imagem */
+.filme-img-preview {
+  width: 200px;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  background-color: #f3f4f6;
+}
+
+/* Ações */
+.filme-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+/* Botões base */
+.btn {
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 160ms ease, transform 80ms ease;
+  outline: none;
+}
+
+/* Botão salvar (verde claro) */
+.btn-salvar {
+  background-color: #d8f7d8;
+  color: #0b5e0b;
+}
+.btn-salvar:hover {
+  background-color: #c7f0c7;
+}
+.btn-salvar:active {
+  transform: translateY(1px);
+}
+
+/* Botão cancelar (vermelho claro) */
+.btn-cancelar {
+  background-color: #ffdcdc;
+  color: #7a0b0b;
+}
+.btn-cancelar:hover {
+  background-color: #ffc9c9;
+}
+.btn-cancelar:active {
+  transform: translateY(1px);
+}
+
+/* Mensagem de erro */
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
