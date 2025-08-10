@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { AppComponent } from './app'; 
+import { AppRoutingModule } from './app-routing-module';
 import { FilmesList } from './pages/filmes-list/filmes-list';
 import { FilmesForm } from './pages/filmes-form/filmes-form';
 
-const routes: Routes = [
-  { path: '', redirectTo: 'filmes', pathMatch: 'full' },
-  { path: 'filmes', component: FilmesList },
-  { path: 'filmes/novo', component: FilmesForm },
-  { path: 'filmes/:id/editar', component: FilmesForm },
-  { path: '**', redirectTo: 'filmes' }
-];
-
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
-  exports: [RouterModule]
+  declarations: [AppComponent, FilmesList, FilmesForm],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
+  bootstrap: [AppComponent]
 })
-export class AppRoutingModule {}
+export class AppModule {}
