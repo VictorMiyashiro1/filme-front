@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
-  styleUrls: ['./app.scss'] // pode remover se não tiver o scss
+  standalone: false,
+  styleUrl: './app.scss'
 })
-export class AppComponent {}
+export class App {
+  protected readonly title = signal('filmes-app');
+}
