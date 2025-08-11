@@ -1,8 +1,0 @@
-{
-  "routes": {
-    "/": {},
-    "/filmes/novo": {},
-    "/filmes/:id/editar": {}
-  }
-}
-
