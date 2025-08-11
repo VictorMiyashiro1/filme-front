@@ -61,14 +61,8 @@
   color: #1f2937;
   opacity: 0.85;
   margin: 0;
-  /* Se quiser limitar altura e cortar com reticências: */
-  /* display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden; */
 }
 
-/* Ações */
 .filme-actions {
   display: flex;
   gap: 10px;
